@@ -11,12 +11,23 @@ Oi! 💖 Este é um bot fofinho para Discord feito com muito amor em **Rust**, u
 
 Se você ainda não tem o Rust, não se preocupe! 🥺 Você pode baixar e instalar com facilidade através do [site oficial do Rust](https://www.rust-lang.org/). 🌟
 
+#### 4. Instalar o Cargo (caso não tenha)
+
+Se você ainda não tem o Cargo, não se preocupe! 😇 É super fácil de instalar! Basta rodar este comando fofo:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+
 #### 2. Criar o Arquivo `.env`
 
 Na raiz do projeto, crie um arquivo `.env` com o seguinte conteúdo:
 
 ```env
-CHA__DISCORD_TOKEN=seu_token_aqui
+NASA_API_KEY=sua_api_key_da_nasa
+DATABASE_URL=url_do_seu_banco_de_dados_sql
+DISCORD_TOKEN=seu_token_aqui
 ```
 
 Substitua `seu_token_aqui` pelo token verdadeiro do seu bot Discord. 💖✨
@@ -29,14 +40,4 @@ No terminal, vá até a pasta do projeto e execute o comando para instalar as de
 cargo run
 ```
 
-Yay! O bot vai estar prontinho para começar! 🥳💖
-
-#### 4. Instalar o Cargo (caso não tenha)
-
-Se você ainda não tem o Cargo, não se preocupe! 😇 É super fácil de instalar! Basta rodar este comando fofo:
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-Agora, está tudo pronto para você começar a se divertir com o bot! 🌸💕
+Yay!, está tudo pronto para você começar a se divertir com o bot! 🌸💕
