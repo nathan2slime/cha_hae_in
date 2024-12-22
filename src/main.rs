@@ -1,6 +1,8 @@
 mod config;
 mod types;
 mod commands;
+mod embeds;
+mod services;
 
 use serenity::all::ClientBuilder;
 use serenity::prelude::GatewayIntents;
