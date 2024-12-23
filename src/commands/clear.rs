@@ -4,7 +4,10 @@ use serenity::{all::MessageId, futures::StreamExt};
 
 use crate::types::{Context, Error};
 
-#[poise::command(slash_command)]
+#[poise::command(
+    slash_command,
+    description_localized("pt-BR", "Limpa mensagens do canal")
+)]
 pub async fn clear(ctx: Context<'_>) -> Result<(), Error> {
     let channel = ctx.channel_id();
     let author = ctx.author();

@@ -4,14 +4,16 @@ mod database;
 mod embeds;
 mod services;
 mod types;
+mod utils;
 
 use crate::commands::commands;
 use crate::config::load_config;
-use serenity::all::ClientBuilder;
-use serenity::prelude::GatewayIntents;
 
 use dotenv::dotenv;
+use serenity::all::{ClientBuilder, GatewayIntents};
+use songbird::Songbird;
 use types::Data;
+use utils::create_http_client;
 
 #[tokio::main]
 async fn main() {
@@ -21,8 +23,11 @@ async fn main() {
     let config = load_config();
     let intents = GatewayIntents::non_privileged();
     let discord_token = config.discord_token.clone();
+    let voice_manager = Songbird::serenity();
 
     let db = database::connection::create(&config).await;
+
+    let my_voice_manager = voice_manager.clone();
 
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
@@ -34,15 +39,24 @@ async fn main() {
                 poise::builtins::register_globally(ctx, &framework.options().commands).await?;
                 Ok(Data {
                     config,
-                    db: db.clone(),
+                    http: create_http_client(),
+                    songbird: my_voice_manager,
+                    db,
                 })
             })
         })
         .build();
 
     let client = ClientBuilder::new(discord_token, intents)
+        .event_handler(utils::Handler)
         .framework(framework)
+        .voice_manager_arc(voice_manager)
         .await;
 
-    client.unwrap().start().await.unwrap();
+    tokio::spawn(async move {
+        client.unwrap().start().await.unwrap();
+    });
+
+    let _signal_err = tokio::signal::ctrl_c().await;
+    println!("Received Ctrl-C, shutting down.");
 }
