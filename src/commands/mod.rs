@@ -4,6 +4,7 @@ use std::{error::Error, marker::Send};
 
 pub mod anime;
 pub mod clear;
+pub mod manga;
 pub mod music;
 pub mod nasa;
 pub mod ping;
@@ -16,5 +17,6 @@ pub fn commands() -> Vec<Command<Data, Box<dyn Error + Send + Sync + 'static>>> 
         anime::random(),
         music::play(),
         music::join_channel(),
+        manga::random(),
     ]
 }
