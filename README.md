@@ -1,43 +1,88 @@
 
-## Cha Hae-In
+# Cha Hae-In
+> **Note**: This file is modified by a LLM trained with the personality of an anime girl, ready to make everything more kawaii! 💖
 
-Oi! 💖 Este é um bot fofinho para Discord feito com muito amor em **Rust**, usando a biblioteca `serenity` para conversar com a API do Discord! 😍 Ele está configurado para usar o framework `poise` para facilitar a criação de comandos e pode ler variáveis de ambiente do arquivo `.env`. 🐾 O bot também tem uma descrição bem fofa da **Cha Hae-In**, uma caçadora incrível de *Solo Leveling*! ✨ Ela é uma caçadora de rank S, super forte 💪, graciosa 💖 e leal. Uma verdadeira heroína que usa uma espada super poderosa para proteger quem ama! 🌸 Ela é uma das personagens mais importantes de *Solo Leveling*, sempre ao lado do protagonista, Sung Jin-Woo, ajudando-o em sua jornada cheia de aventuras. 🏹
+Rust-based Discord bot using the serenity library, inspired by Cha Hae-In, the amazing S-Rank Hunter from Solo Leveling! 🗡️
+Cha Hae-In is strong 💪, graceful 💖, and always loyal to her friends. She's a true heroine who uses her mighty sword to protect those she loves. 🌟
+
+##🎮 Commands
+
+> **Note**: All commands are super kawaii **slash commands** (`/command`). 
+
+Here’s what this bot can do for you:  
+
+1. **Ping**  
+   - Command: `/ping`  
+   - Checks how fast I can respond to you! Zoom zoom~ 
+
+2. **Clear Messages**  
+   - Command: `/clear`  
+   - Tidies up messy channels. Let’s keep things clean, ok?   
+
+3. **Astronomy Picture of the Day**  
+   - Command: `/nasa apod`  
+   - Wanna see the stars? Let’s check out NASA’s picture of the day!  
+
+4. **Random Anime**  
+   - Command: `/anime random`  
+   - Need a new anime to watch? I’ll suggest something for you!   
+
+5. **Music Commands** 
+   - `/music play [url]`: Plays music from the URL (e.g., YouTube). Let’s vibe together!
+   - `/music join_channel`: Joins the voice channel you’re in! Let’s hang out!
 
 ---
 
-### Setup e Requisitos
+## Setup
+### 1. Install Rust
+If you don't have Rust yet, don't worry! 🥺 You can easily download and install it from the official Rust website. 🌟
 
-#### 1. Instalar o Rust
-
-Se você ainda não tem o Rust, não se preocupe! 🥺 Você pode baixar e instalar com facilidade através do [site oficial do Rust](https://www.rust-lang.org/). 🌟
-
-#### 4. Instalar o Cargo (caso não tenha)
-
-Se você ainda não tem o Cargo, não se preocupe! 😇 É super fácil de instalar! Basta rodar este comando fofo:
+### 4. Install Cargo (if you don't have it)
+If you don't have Cargo yet, don't worry! 😇 It's super easy to install! Just run this cute command:
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+### 2. Create the `.env` File
+In the root of the project, create a `.env` file with the following content:
 
-#### 2. Criar o Arquivo `.env`
+```.env
+# Discord bot token
+DISCORD_TOKEN=""
 
-Na raiz do projeto, crie um arquivo `.env` com o seguinte conteúdo:
+# Logging level for Rust application
+RUST_LOG="info"
 
-```env
-NASA_API_KEY=sua_api_key_da_nasa
-DATABASE_URL=url_do_seu_banco_de_dados_sql
-DISCORD_TOKEN=seu_token_aqui
+# Database connection URL
+DATABASE_URL="sqlite::memory:chahaein"
+
+# NASA API key for accessing NASA data
+NASA_API_KEY=""
 ```
 
-Substitua `seu_token_aqui` pelo token verdadeiro do seu bot Discord. 💖✨
+Replace your_token_here with your actual Discord bot token. 💖✨
 
-#### 3. Instalar Dependências e Rodar
-
-No terminal, vá até a pasta do projeto e execute o comando para instalar as dependências e colocar a **Cha Hae-In** em ação:
+### 3. Install Dependencies and Run
+In the terminal, navigate to the project folder and run the command to install dependencies and get Cha Hae-In up and running:
 
 ```bash
 cargo run
 ```
 
-Yay!, está tudo pronto para você começar a se divertir com o bot! 🌸💕
+## 🐳 Using Docker
+
+### Setup
+To run the bot in production using Docker Compose:
+
+### Install docker and docker-compose.
+Create a `.env.production` file as described above.
+
+### Running
+To start the bot:
+
+```bash
+docker-compose up
+```
+
+Yay!, everything is set up for you to start having fun with the bot! 🌸💕

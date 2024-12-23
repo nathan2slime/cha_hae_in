@@ -22,7 +22,7 @@ pub async fn play(
         };
 
         let _ = handler.play(src.into());
-        println!("tocando essa bagaça");
+
         ctx.say("Hmm, está tocando agora... Espero que seja do seu gosto!")
             .await?;
     } else {
