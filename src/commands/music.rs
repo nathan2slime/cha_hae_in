@@ -21,13 +21,15 @@ pub async fn play(
             YoutubeDl::new(data.http.clone(), url)
         };
 
-        let _ = handler.play(src.into());
+        let _song = handler.play(src.into());
 
-        ctx.say("Hmm, está tocando agora... Espero que seja do seu gosto!")
+        ctx.say("Hmm~ está tocando agora... espero que seja do seu gostinho, senpai! 🎶")
             .await?;
     } else {
-        ctx.say("Ah, eu não estou em um canal de voz ainda... por favor, me convide!")
-            .await?;
+        ctx.say(
+            "Ah~ eu ainda não estou em um canal de voz, gomen~ por favor, me convide, onegai! 💕",
+        )
+        .await?;
     }
 
     Ok(())

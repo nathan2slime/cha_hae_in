@@ -1,8 +1,8 @@
 use serenity::{all::CreateEmbed, model::colour};
 
-use crate::services::jikan::Anime;
+use crate::services::jikan::Manga;
 
-pub fn basic(data: Anime) -> CreateEmbed {
+pub fn basic(data: Manga) -> CreateEmbed {
     CreateEmbed::new()
         .title(data.title)
         .description(data.synopsis)
