@@ -58,5 +58,6 @@ async fn main() {
     });
 
     let _signal_err = tokio::signal::ctrl_c().await;
-    println!("Received Ctrl-C, shutting down.");
+
+    println!("received ctrl-c");
 }
