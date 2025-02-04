@@ -1,6 +1,5 @@
 mod commands;
 mod config;
-mod database;
 mod embeds;
 mod services;
 mod types;
@@ -25,8 +24,6 @@ async fn main() {
     let discord_token = config.discord_token.clone();
     let voice_manager = Songbird::serenity();
 
-    let db = database::connection::create(&config).await;
-
     let my_voice_manager = voice_manager.clone();
 
     let framework = poise::Framework::builder()
@@ -41,7 +38,6 @@ async fn main() {
                     config,
                     http: create_http_client(),
                     songbird: my_voice_manager,
-                    db,
                 })
             })
         })

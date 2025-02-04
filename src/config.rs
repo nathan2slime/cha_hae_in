@@ -4,7 +4,6 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug, Clone)]
 pub struct AppConfig {
     pub discord_token: String,
-    pub database_url: String,
     pub nasa_api_key: String,
 }
 
