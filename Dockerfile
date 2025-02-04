@@ -10,7 +10,6 @@ WORKDIR /build
 COPY entrypoint.sh entrypoint.sh
 COPY Cargo.lock Cargo.toml ./
 COPY src src
-COPY migrations migrations
 RUN export RUST_MIN_STACK=33554432 && cargo clean &&  cargo build --locked --release --workspace
 
 FROM debian:bullseye-slim AS final
@@ -32,7 +31,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
 
 COPY --from=build /build/target/release/chahaein /app
-COPY --from=build /build/target/release/migrations /app
 COPY --from=build /build/entrypoint.sh /app
 
 USER root
